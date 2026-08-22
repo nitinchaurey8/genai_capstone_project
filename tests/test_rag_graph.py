@@ -159,15 +159,14 @@ def main():
     # TEST 8: EMPTY QUESTION
     # ------------------------------------------
 
-    try:
-        run_rag_graph("")
+    empty_question_result = run_rag_graph("")
 
-        raise AssertionError(
-            "Empty question was not rejected."
-        )
+    assert (
+        empty_question_result["status"]
+        == "validation_failed"
+    )
 
-    except ValueError:
-        pass
+    assert empty_question_result["answer"]
 
     print(
         "Empty question rejection: PASSED"
