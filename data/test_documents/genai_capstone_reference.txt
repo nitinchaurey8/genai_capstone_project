@@ -1,0 +1,88 @@
+GENAI CAPSTONE REFERENCE GUIDE
+
+1.  GENERATIVE AI Generative AI refers to AI systems that generate new
+    content from inputs or instructions. Depending on the system,
+    generated content can include text, code, images, audio, or
+    structured responses.
+
+2.  LARGE LANGUAGE MODELS A large language model (LLM) processes and
+    generates language. In an application, an LLM can support question
+    answering, summarization, extraction, classification, reasoning, and
+    response generation.
+
+3.  RETRIEVAL-AUGMENTED GENERATION (RAG) RAG is an application pattern
+    that retrieves relevant information from an external knowledge
+    source and supplies it to a language model as context before
+    generating an answer.
+
+A typical RAG pipeline is: Load documents -> Split documents -> Create
+embeddings -> Store vectors -> Retrieve relevant chunks -> Build context
+-> Generate answer.
+
+4.  EMBEDDINGS An embedding is a numerical vector representation of
+    content. Embeddings allow applications to compare content by
+    semantic similarity and support semantic retrieval.
+
+5.  VECTOR DATABASES A vector database stores vector representations and
+    supports similarity search. In a RAG system, document chunks are
+    embedded and stored so relevant information can be retrieved for a
+    question. ChromaDB is an example used in this capstone project.
+
+6.  LANGCHAIN LangChain is a framework for building applications powered
+    by language models. It provides components and integrations for
+    document processing, retrieval, model interaction, tool use, and
+    agent applications.
+
+7.  LANGGRAPH LangGraph is used to build stateful, multi-step workflows
+    and agentic applications. A graph can represent application state
+    and connect nodes that perform individual processing steps.
+
+A RAG workflow can be: Validate question -> Retrieve documents -> Build
+context -> Generate answer -> Return sources.
+
+8.  AI AGENTS An AI agent is an application in which a model can
+    determine actions to take toward a task. Depending on the
+    application, an agent may select tools, inspect results, perform
+    multiple steps, and decide what to do next.
+
+9.  AGENTIC AI Agentic AI refers to AI systems designed to perform tasks
+    through multiple actions or decisions rather than producing only a
+    single response. Agentic systems can use models, tools, state,
+    retrieval, and control logic.
+
+10. AGENTIC RAG Agentic RAG combines retrieval with agent-style decision
+    making. Instead of always following one fixed retrieval step, an
+    agentic RAG application can decide whether retrieval is needed,
+    evaluate retrieved information, and determine what action should
+    happen next.
+
+11. TOOLS A tool is an external capability an AI application can invoke.
+    Examples include a database query, calculator, search service, API
+    call, file operation, or business-system action.
+
+12. WORKFLOW VERSUS AGENT A workflow normally follows a predetermined
+    sequence of operations. An agent can dynamically determine the next
+    action based on the current state and available tools.
+
+Workflow example: Upload -> Load -> Chunk -> Embed -> Store -> Retrieve
+-> Generate
+
+Agent example: Question -> Decide whether retrieval is needed ->
+Retrieve -> Evaluate -> Search again or answer
+
+13. GROUNDED GENERATION Grounded generation means generating an answer
+    using supplied evidence or context. In a document RAG application,
+    retrieved document chunks act as evidence.
+
+14. RELIABILITY AND SAFETY Useful controls include rejecting empty
+    questions, rejecting unsupported file types, handling empty uploads,
+    limiting retrieved results, returning a controlled fallback when
+    useful context is unavailable, sanitizing technical errors,
+    protecting source metadata, and keeping API keys outside source
+    code.
+
+15. CAPSTONE ARCHITECTURE Documents -> Document Loader -> Text Chunker
+    -> Embedding Model -> ChromaDB
+
+User Question -> Validation -> Retrieval -> Context -> LangGraph ->
+Language Model -> Answer + Sources

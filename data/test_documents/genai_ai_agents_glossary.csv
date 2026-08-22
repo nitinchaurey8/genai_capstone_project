@@ -1,0 +1,21 @@
+Term,Category,Definition,Example
+Generative AI,Generative AI,AI systems that generate new content from inputs or instructions.,Text generation
+LLM,Generative AI,A language model designed to process and generate natural language.,Question answering
+RAG,Retrieval,An application pattern that retrieves external information and provides it to a language model as context.,Document question answering
+Retrieval,RAG,Finding relevant information from a knowledge source for a query.,Semantic search
+Embedding,RAG,A numerical vector representation used for semantic comparison and retrieval.,Text embedding
+Vector Database,RAG,A database designed to store vectors and perform similarity search.,ChromaDB
+ChromaDB,RAG,A vector database that can store embeddings and support similarity search.,RAG retrieval
+LangChain,Framework,A framework for building applications powered by language models and integrating application components.,RAG applications
+LangGraph,Orchestration,"A framework for representing stateful, multi-step workflows and agentic applications as graphs.",RAG workflow
+AI Agent,Agentic AI,An AI application that can determine actions to take toward a task.,Selecting tools
+Agentic AI,Agentic AI,AI systems designed to perform tasks through multiple actions or decisions.,Tool-using assistant
+Tool,Agentic AI,An external capability an AI application can invoke to perform an operation.,API or database
+Workflow,Orchestration,A predetermined sequence of processing steps.,Validate -> Retrieve -> Generate
+Agentic RAG,Agentic AI,RAG combined with agent-style decisions about retrieval and subsequent actions.,Retrieve -> Evaluate -> Decide
+Grounded Generation,Reliability,Generating an answer using supplied evidence or retrieved context.,Document-grounded answer
+Hallucination,Reliability,An unsupported or incorrect model-generated claim presented as an answer.,Inventing absent information
+Prompt,Generative AI,Instructions or input provided to a language model to guide its response.,System instruction
+Context,RAG,Information supplied to a model to help it answer a question.,Retrieved chunks
+Chunk,RAG,A smaller section of a document created to make retrieval more targeted.,Paragraph-sized segment
+Semantic Search,Retrieval,Search based on meaning or semantic similarity rather than only exact keywords.,Embedding similarity

@@ -1,0 +1,17 @@
+commands
+cd C:\project\genai_capstone_project
+python -m venv venv
+venv\Scripts\activate
+pip install -r requirements.txt
+python --version
+git --version
+pwd
+pip list
+python -c "import streamlit; import langchain; import langgraph; import chromadb; import pypdf; import pandas; import openpyxl; import dotenv; print('CORE PACKAGES: OK')"
+python -m pip --version
+.env
+.env.example
+.gitignore
+HF_TOKEN=your_huggingface_token_here
+LLM_MODEL=your_model_name
+EMBEDDING_MODEL=your_embedding_model

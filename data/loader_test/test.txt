@@ -1,0 +1,5 @@
+GenAI Capstone Project
+
+This document is used to test the TXT document loader.
+
+The project uses Python, LangChain, LangGraph, Streamlit, embeddings, vector search, and RAG.
