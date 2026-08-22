@@ -1,3 +1,28 @@
+"""
+Module: Supported document loader for the GenAI RAG application
+
+Purpose:
+Loads PDF, TXT, CSV, and XLSX files from filesystem paths and converts their contents into LangChain Document objects. It records source and format-specific location metadata such as PDF pages, spreadsheet sheets, and rows. Unsupported, missing, or empty inputs are handled according to the existing format-specific loading logic.
+
+Responsibilities:
+- Validate file existence and supported extensions
+- Extract text from PDF and TXT files
+- Convert CSV rows and XLSX worksheet rows into Documents
+- Attach source and location metadata to loaded Documents
+
+Project Role:
+This module is part of the ingestion layer used by the Streamlit interface and indexing workflow. Its Documents are passed to the chunking and indexing components for downstream embedding and storage.
+
+Technologies:
+- LangChain Document
+- pandas
+- pypdf
+- pathlib
+
+Important:
+PDF pages, non-empty text files, CSV rows, and XLSX rows are represented as separate Documents where applicable. File extensions are checked case-insensitively, text files use UTF-8 with replacement for decoding errors, and empty content produces no Documents.
+"""
+
 from pathlib import Path
 
 import pandas as pd

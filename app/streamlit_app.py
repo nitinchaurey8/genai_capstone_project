@@ -1,3 +1,27 @@
+"""
+Module: Streamlit interface for the GenAI retrieval-augmented generation application
+
+Purpose:
+Provides the interactive Streamlit interface for uploading documents, processing them into the application's indexed document collection, and asking questions about the uploaded content. It displays document processing summaries, generated answers, and available source information. Users can also clear the indexed document collection from the interface.
+
+Responsibilities:
+- Configure and render the Streamlit page, sidebar, document upload controls, and question area
+- Validate uploaded file extensions and questions before processing
+- Load uploaded documents through the document loader and index them through the indexing service
+- Run the RAG graph for valid questions and display answers, errors, and source details
+
+Project Role:
+This module is the user-facing entry point for the GenAI RAG application. It coordinates the document loader, indexer, safety validation functions, vector store clearing operation, and RAG graph while leaving document processing, retrieval, and answer generation to those components.
+
+Technologies:
+- Streamlit
+- Python temporary files and pathlib
+- Application RAG graph, ingestion, reliability, and Chroma vector store modules
+
+Important:
+Uploaded documents are accepted as PDF, TXT, CSV, or XLSX files, validated, written to temporary files, loaded, and indexed with their original filenames restored in metadata. Questions are validated before the RAG graph is called, and the interface reports processing failures and graph errors without exposing exception details.
+"""
+
 import sys
 from pathlib import Path
 

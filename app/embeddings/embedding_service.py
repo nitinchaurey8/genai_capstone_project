@@ -1,3 +1,27 @@
+"""
+Module: Google Gemini embedding service
+
+Purpose:
+Creates the configured Google Gemini embedding model and exposes helpers for embedding one query or a collection of document texts. Configuration values are obtained from the application's configuration module.
+
+Responsibilities:
+- Validate the configured Google API key and embedding model name
+- Construct a GoogleGenerativeAIEmbeddings instance
+- Generate an embedding vector for a non-empty query
+- Generate vectors for non-empty, trimmed document texts
+
+Project Role:
+This module supplies embeddings to the indexing and ChromaDB vector store layers. The retrieval path relies on the same configured embedding model through the vector store connection.
+
+Technologies:
+- langchain-google-genai
+- Google Gemini embeddings
+- Application configuration module
+
+Important:
+Missing Google embedding configuration raises a ValueError. Empty query or document input is rejected or returns an empty list according to the helper being used, and document texts are stripped before embedding.
+"""
+
 from langchain_google_genai import GoogleGenerativeAIEmbeddings
 
 from app.utils.config import (

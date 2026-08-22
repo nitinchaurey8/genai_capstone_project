@@ -1,3 +1,28 @@
+"""
+Module: Document indexing pipeline for the GenAI RAG application
+
+Purpose:
+Processes loaded LangChain Documents into chunks, obtains the configured embedding model, and stores the chunks in ChromaDB. It returns counts and source names describing the indexing operation. It also provides a convenience function for loading and indexing one filesystem file.
+
+Responsibilities:
+- Validate that input Documents and generated chunks are available
+- Chunk Documents through the processing component
+- Verify the embedding service before storage
+- Add chunks to ChromaDB and return an indexing summary
+
+Project Role:
+This module connects ingestion to the processing, embedding, and vector store layers. The Streamlit application uses it to index uploaded content, while tests and backend integrations can use its single-file helper.
+
+Technologies:
+- LangChain Document
+- pathlib
+- Application chunking and embedding services
+- ChromaDB through the application vector store module
+
+Important:
+Indexing raises validation errors when no documents, chunks, embedding model, or stored document IDs are available. The returned summary reports loaded documents, created chunks, stored vectors, and distinct source names.
+"""
+
 from pathlib import Path
 
 from langchain_core.documents import Document

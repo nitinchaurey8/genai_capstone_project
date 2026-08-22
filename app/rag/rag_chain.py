@@ -1,3 +1,27 @@
+"""
+Module: Grounded Gemini RAG answer chain
+
+Purpose:
+Builds prompts from retrieved document context and uses the configured Gemini chat model to generate an answer to a question. It normalizes supported LangChain response content formats and returns a fallback when context or generated text is unavailable. It also exposes a complete question flow that returns the answer and retrieved source metadata.
+
+Responsibilities:
+- Configure the Gemini chat model and grounded RAG prompt
+- Normalize string and content-block response formats
+- Generate answers from supplied retrieved Documents only
+- Retrieve context and return answers with source details
+
+Project Role:
+This module is the answer-generation layer of the GenAI RAG application. It combines retrieval utilities with the Google Gemini model and is also called by the LangGraph workflow.
+
+Technologies:
+- LangChain prompts and Documents
+- langchain-google-genai ChatGoogleGenerativeAI
+- Google Gemini
+
+Important:
+The system prompt instructs the model to use only retrieved context and provides a fallback answer when context or response content is insufficient. The configured model requires both a Google API key and LLM model name, and generation uses temperature 0.0.
+"""
+
 from langchain_core.documents import Document
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_google_genai import ChatGoogleGenerativeAI

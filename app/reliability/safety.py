@@ -1,3 +1,27 @@
+"""
+Module: Input validation and safe output helpers
+
+Purpose:
+Centralizes validation rules and user-facing messages for questions, uploaded file extensions, retrieval limits, and retrieved context. It also constrains retrieval settings, sanitizes internal error messages, and extracts a limited set of source metadata for frontend display.
+
+Responsibilities:
+- Validate questions, file names, uploaded file collections, and top-k values
+- Normalize retrieval counts to configured minimum and maximum limits
+- Detect whether retrieved Documents contain usable content
+- Sanitize errors and build safe source metadata dictionaries
+
+Project Role:
+This module provides reliability and safety helpers used by the Streamlit interface, retriever, and LangGraph workflow. It defines shared validation limits and fallback messages used across the RAG application.
+
+Technologies:
+- Python pathlib
+- LangChain-compatible Document metadata access
+- Application retrieval and LangGraph workflow components
+
+Important:
+Supported uploads are PDF, TXT, CSV, and XLSX. Retrieval counts are constrained to 1 through 8 with a default of 4, and API or model-related failures are mapped to a generic LLM error message without exposing internal exception details.
+"""
+
 from pathlib import Path
 
 

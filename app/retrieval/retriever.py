@@ -1,3 +1,26 @@
+"""
+Module: Retrieved document and context utilities
+
+Purpose:
+Retrieves relevant document chunks from the ChromaDB vector store for a user query, optionally retaining similarity scores. It also formats retrieved chunks into a context string containing source and location references for the RAG generation step.
+
+Responsibilities:
+- Validate retrieval queries and requested result counts
+- Retrieve document chunks with or without scores
+- Extract Documents from scored search results
+- Build source-labeled context from retrieved content
+
+Project Role:
+This module sits between the vector store and the RAG chain or LangGraph workflow. It supplies retrieved Documents and formatted context used to generate grounded answers and display source information.
+
+Technologies:
+- LangChain Document
+- Application ChromaDB vector store module
+
+Important:
+The default retrieval count is four, and non-empty queries with positive counts are required. Context labels include available source, page, sheet, and row metadata before the chunk content.
+"""
+
 from langchain_core.documents import Document
 
 from app.vectorstore.chroma_store import (

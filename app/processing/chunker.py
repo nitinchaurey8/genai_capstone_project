@@ -1,3 +1,26 @@
+"""
+Module: LangChain document chunking utilities
+
+Purpose:
+Splits loaded LangChain Documents into smaller overlapping text chunks for downstream embedding and retrieval. It preserves the original metadata on each generated chunk and assigns a sequential chunk identifier.
+
+Responsibilities:
+- Handle empty document input
+- Configure recursive character-based splitting
+- Preserve source and format-specific metadata
+- Add chunk identifiers to generated Documents
+
+Project Role:
+This module is the processing step between document ingestion and indexing. The indexer uses it before embedding chunks and adding them to the ChromaDB vector store.
+
+Technologies:
+- LangChain Document
+- LangChain RecursiveCharacterTextSplitter
+
+Important:
+The configured chunk size is 1000 characters with 200 characters of overlap. Splitting prioritizes paragraph, line, sentence, space, and character boundaries in that order.
+"""
+
 from langchain_core.documents import Document
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 

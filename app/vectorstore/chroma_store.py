@@ -1,3 +1,28 @@
+"""
+Module: Persistent ChromaDB vector store operations
+
+Purpose:
+Creates or connects to the application's persistent ChromaDB collection using the configured embedding model. It provides operations for adding Documents, performing similarity searches, counting stored items, and clearing the collection.
+
+Responsibilities:
+- Initialize the persistent ChromaDB directory and collection
+- Add LangChain Documents to the vector store
+- Retrieve similar Documents with or without similarity scores
+- Count and delete stored collection entries
+
+Project Role:
+This module is the vector storage boundary for the RAG application. The indexer writes processed chunks here, the retriever reads them for question answering, and the Streamlit interface can clear the collection.
+
+Technologies:
+- langchain-chroma
+- ChromaDB
+- LangChain Document
+- pathlib
+
+Important:
+The store uses `data/chroma` and the `genai_capstone_documents` collection. Similarity searches require a non-empty query and a positive result count; adding an empty document list returns no IDs, and clearing deletes all existing collection IDs.
+"""
+
 from pathlib import Path
 
 from langchain_chroma import Chroma

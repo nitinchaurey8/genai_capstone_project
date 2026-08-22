@@ -1,3 +1,27 @@
+"""
+Module: Environment-based model configuration
+
+Purpose:
+Loads API keys and model names from environment variables using the dotenv package. It defines Google Gemini settings used by the application and OpenAI settings retained as backup provider configuration. The module requires a configured Google API key when it is imported.
+
+Responsibilities:
+- Load values from the project's environment configuration
+- Define Google LLM and embedding model settings
+- Define backup OpenAI API and model settings
+- Fail early when the Google API key is unavailable
+
+Project Role:
+This module supplies shared configuration values to the embedding service and RAG chain. Those components use the Google settings to construct Gemini embedding and chat model clients.
+
+Technologies:
+- python-dotenv
+- Python os environment access
+- Google Gemini and OpenAI model configuration values
+
+Important:
+Google model names have defaults when their environment variables are absent, but importing this module raises a ValueError if `GOOGLE_API_KEY` is not configured. The OpenAI values are loaded but are not used by the code in this module.
+"""
+
 import os
 
 from dotenv import load_dotenv

@@ -1,3 +1,27 @@
+"""
+Module: Reliability-aware LangGraph RAG workflow
+
+Purpose:
+Defines the typed state and processing nodes for validating a question, retrieving documents, building context, generating an answer, and preparing safe source metadata. It assembles these nodes into a compiled LangGraph workflow and provides a function to invoke that workflow.
+
+Responsibilities:
+- Manage question, retrieval, context, answer, source, and status state
+- Handle validation, retrieval, no-context, and generation outcomes
+- Sanitize errors before placing them in workflow state
+- Build and execute the ordered LangGraph RAG graph
+
+Project Role:
+This module orchestrates the RAG chain for the Streamlit frontend. It connects the reliability helpers, retriever, context builder, answer generator, and safe source formatter into the application's executable workflow.
+
+Technologies:
+- LangGraph StateGraph
+- Python TypedDict
+- Application retrieval, RAG, and reliability modules
+
+Important:
+The workflow runs in the order validate, retrieve, context, generate, and sources. Validation failures, retrieval failures, missing context, and generation failures are represented in state, while internal exceptions are converted to safe user-facing messages.
+"""
+
 from typing import TypedDict
 
 from langgraph.graph import END, START, StateGraph
