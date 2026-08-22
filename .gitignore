@@ -39,3 +39,6 @@ Thumbs.db
 
 # Logs
 *.log
+
+# ChromaDB runtime data
+data/chroma/
